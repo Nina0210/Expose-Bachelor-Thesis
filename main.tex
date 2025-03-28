@@ -40,7 +40,10 @@ Apache Spark introduced GraphX in 2014 which features a static and dynamic imple
 \section{Approach}
 The novel approach of the paper will be to implement an approximate PageRank algorithm on the open source system Apache Spark. As the existing GraphX library is not sufficient for real world use cases but poses a practical framework for many companies, the new implementation should address these issues and introduce an approach that focuses on low memory consumption. The result of recent research shows that there are several algorithms that perform better than the original one, but have not been implemented in an open source framework. The main goal of the thesis would be to implement a state of the art method on the basis of Spark that requires significantly less memory than GraphX's implementation. 
 
-One idea is the $T^2$-Approx algorithm. 
+One idea is the $T^2$-Approx algorithm. It is a new method that addresses issues in existing algorithms and generalizes other matrix approximation-based PageRank algorithms. It uses a modified low-rank approximation of $T^2$, where $T$ is the transition matrix of the graph. It directly approximates $T^2$ by using two much smaller matrices $X$ and $Y$ instead of approximating $T$ and then computing $T^k$. It then estimates $T^k$ by building up powers of the small matrix. In general it uses low-rank approximation so that only a small number of rows and columns are used which drastically reduces memory. It also avoids full SVD decompositions.   
+
+
+%It leverages the low-rank approximation and the random walk
 
 
 \section{References}
