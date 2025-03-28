@@ -1,0 +1,52 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{amsmath, amssymb}
+
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+\usepackage{natbib}
+\usepackage{titlesec}
+\usepackage{multicol}
+
+% Title Formatting
+\titleformat{\section}{\large\bfseries}{\thesection}{1em}{}
+
+\title{Optimized Memory Usage\\ for Distributed Graph Analytics}
+\author{Nina Michalek\\TU Berlin, DOS}
+\date{March 14, 2025}
+
+\begin{document}
+
+\maketitle
+
+\begin{multicols}{2}
+
+\section{Introduction}
+Today graphs are widely used to represent relationships between different entities for many applications such as social networks and website connections. Graphs are important for businesses to give users the best experience. With the everlasting increase of graph data one single machine is not sufficient to process big data sets of graphs therefor distributed graph processing systems are used to analyze the data stored in the graphs. Challenges arise with the processing of massive graphs including parallelism, load balancing, communication overhead and bandwidth \cite{meng_survey_2024}. 
+
+\section{Problem Description}
+In recent years a lot of graph processing frameworks and algorithms have been introduced. 
+PageRank is a widely used graph algorithm introduced by Google. Today it is used by many domains such as search engines, recommendation systems and social networks. The algorithm measures the importance of websites. However, research shows that most implementations of the algorithm are not efficient on large graphs as there is a huge computational overhead. That is because some algorithms still don't use approximate PageRank values. PageRank leverages iterative convergence to compute values for the nodes. In the original implementation it uses power iteration, which requires many passes over the graph to converge. This is computationally expensive. Another problem with real world graphs is that typically they are sparse and irregular. Some nodes have thousands of links and others just a few. PageRank implementations have a static nature and therefor don't adapt to fast changing environments such as social media. However, one of the major problems is the graph representation. Usually the graph is represented in a matrix, which requires up to $O(n^2)$ of memory.
+
+
+\section{State of the Art}
+Today there are many approximate PageRank algorithms that address the computational overhead in the original implementation. They use different approaches to achieve a better performance. Some of them use iteration algorithms that work by updating the ranks step by step until the values stop changing much. Although there is a threshold it takes a lot of time on large graphs. Monte Carlo based algorithms use random walks instead of iterations, which means they simulate someone randomly clicking links on the graph to estimate the importance of nodes. For large graphs and high accuracy the algorithm requires a lot of these walks. Another approach only takes samples instead of the whole graph. It estimates the importance of a node by it's local area. In general they are faster because they only use local information but the runtime depends on the size of the area. However, the PageRank can only be estimated for nodes inside that area so computing the PageRank for the whole graph is not possible with the sampling method. Finally matrix approximation PageRank algorithms simplify the adjacency matrix by reducing the rank of the matrix to make computations easier. This results in faster computing time but usually the construction of low-rank matrices is high. Recent research addresses the problem and further optimizes the performance and accuracy by sampling substructures in the graph that are informative about node importance. It further simplifies the computation by constructing a low-rank approximation of the PageRank matrix using representative columns and rows \cite{wu_efficient_2024}. 
+
+Apache Spark introduced GraphX in 2014 which features a static and dynamic implementation of the PageRank algorithm. While GraphX was a huge step forward in distributed graph processing, it has several limitations. Since PageRank has been part of GraphX's first release and GraphX is not actively maintained it has not had any major updates since then. Therefor the PageRank algorithm in Spark is often not suitable for practical modern use cases. Especially, memory limitations arising from the use of power iterations and the use of RDD-based message passing become significant performance bottlenecks.
+ 
+
+\section{Approach}
+The novel approach of the paper will be to implement an approximate PageRank algorithm on the open source system Apache Spark. As the existing GraphX library is not sufficient for real world use cases but poses a practical framework for many companies, the new implementation should address these issues and introduce an approach that focuses on low memory consumption. The result of recent research shows that there are several algorithms that perform better than the original one, but have not been implemented in an open source framework. The main goal of the thesis would be to implement a state of the art method on the basis of Spark that requires significantly less memory than GraphX's implementation. 
+
+One idea is the $T^2$-Approx algorithm. 
+
+
+\section{References}
+\bibliographystyle{plain}  % Choose a citation format
+\bibliography{references}   % Link to your BibTeX file
+
+\end{multicols}
+
+\end{document}
