@@ -45,7 +45,7 @@ One idea is the $T^2$-Approx algorithm \cite{wu_efficient_2024}. It addresses is
 
 Another algorithm that implements a more efficient version of PageRank is the CUR-Trans algorithm \cite{wu_efficient_2024}. It is based on a modified CUR decomposition, which is applied to the transition matrix. The algorithm splits the large matrix $T$ into three small matrices $C, \tilde{U}$ and $R$, where $C$ and $R$ are sampled columns and rows and $\tilde{U}$ is a low-rank approximation of the intersection of $C$ and $R$. A new, significantly smaller Graph is then constructed based on the matrices. The PageRank algorithm is running on the reduced graph and the results are mapped back to the initial graph.
 
-After the implementation of a state of the art approach, the setup will be evaluated. As this thesis aims to address the inefficiencies in GraphX's PageRank implementation, the primary evaluation metric will be memory usage. A tradeoff in accuracy is considered acceptable. The original GraphX's PageRank algorithm will serve as a baseline for comparison. 
+After the implementation of a state of the art approach, the setup will be evaluated. As this thesis aims to address the inefficiencies in GraphX's PageRank implementation, the primary evaluation metric will be the memory usage. A tradeoff in accuracy is considered acceptable. The original GraphX's PageRank algorithm will serve as a baseline for comparison. 
 
 
 
