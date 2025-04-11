@@ -8,12 +8,12 @@
 \geometry{a4paper, margin=1in}
 \usepackage{natbib}
 \usepackage{titlesec}
-\usepackage{multicol}
+%\usepackage{multicol}
 
 % Title Formatting
 \titleformat{\section}{\large\bfseries}{\thesection}{1em}{}
 
-\title{Efficient Approximate PageRank on Apache Spark: \\ A Memory-Aware Approach}
+\title{Memory Efficient Efficient PageRank on Apache Spark}
 \author{Nina Michalek\\TU Berlin, DOS}
 \date{April 7, 2025}
 
@@ -21,14 +21,22 @@
 
 \maketitle
 
-\begin{multicols}{2}
+%\begin{multicols}{2}
 
 \section{Introduction}
-Today graphs are widely used to represent relationships between different entities for many applications such as social networks and website connections \cite{zhang_distributed_2021}. Therefor many specialized graph processing frameworks and algorithms have been introduced \cite{meng_survey_2024}. These systems can efficiently execute iterative algorithms such as PageRank \cite{gonzalez_graphx_nodate}. Apache Spark is an open-source distributed dataflow system that enables large-scale data processing \cite{shanahan_large_2015}. Built on top of Spark, GraphX is a graph processing framework that bridges the gap between system-level optimizations in specialized graph engines and the flexible dataflow operations available in general-purpose systems \cite{noauthor_software_nodate}. However, recent research addresses the huge computational overhead in GraphX's PageRank algorithm and proposes approximate computing to reduce memory usage \cite{wu_efficient_2024}. 
+ Graphs are widely used to represent relationships between different entities for applications such as social networks and website connections \cite{zhang_distributed_2021}. 
+To analyze these, numerous graph algorithms have been proposed. Among the most influential is PageRank, an iterative algorithm introduced by Google to determine website importance. PageRank has become a common component within specialized graph processing frameworks. These systems are designed to efficiently execute iterative algorithms, making graph analytics more practical. An example of such a system is GraphX, built upon Apache Spark \cite{xin_graphx_2013}. Spark itself is a popular open source distributed dataflow system that enables large-scale data processing \cite{shanahan_large_2015}. GraphX acts as a graph processing framework that aims to bridge the gap between system-level optimisations in specialised graph engines and the flexible dataflow operations available in general-purpose systems \cite{noauthor_software_nodate}. However, recent research has addressed the huge memory overhead in GraphX's PageRank algorithm due to the data representation. It proposes approximate computation to reduce memory consumption \cite{wu_efficient_2024}. 
+
+%Apache Spark is a popular open-source distributed data flow system that enables large-scale data processing \cite{shanahan_large_2015}. Built on top of Apache Spark, GraphX is a graph processing framework that bridges the gap between system-level optimizations in specialized graph engines and the flexible dataflow operations available in general-purpose systems \cite{noauthor_software_nodate}.
+
+%The search engine Google introduced PageRank, an iterative algorithm that ranks websites based on importance. Today PageRank is part of every common Graph Processing framework and comes in various implementations depending on the framework.
+
+
+%Therefore many specialized graph processing frameworks and algorithms have been introduced to analyze them, such as GraphX, Pregel \cite{malewicz_pregel_2010}, GraphLab \cite{low_distributed_2012} and GraphScope \cite{xu_graphscope_2021}. These systems can efficiently execute iterative algorithms like PageRank \cite{gonzalez_graphx_nodate}. Apache Spark is a popular open-source distributed dataflow system that enables large-scale data processing \cite{shanahan_large_2015}. Built on top of Apache Spark, GraphX is a graph processing framework that bridges the gap between system-level optimizations in specialized graph engines and the flexible dataflow operations available in general-purpose systems \cite{noauthor_software_nodate}. However, recent research addresses the huge memory overhead in GraphX's PageRank algorithm due to the use of power iteration and RDD's. It proposes approximate computing to reduce memory usage \cite{wu_efficient_2024}. 
  
 
 \section{Problem Description}
-PageRank is a broadly used graph algorithm introduced by Google \cite{page_pagerank_1999}. Many domains such as search engines, recommendation systems and social networks leverage PageRank. The algorithm measures the importance of websites \cite{wu_efficient_2024}. However, research shows that most implementations of the algorithm are inefficient when applied to large scale graphs due to a huge computational overhead \cite{wu_efficient_2024}\cite{jayaram_dynamic_2024}\cite{yang_efficient_2024}. GraphX's PageRank comes with a static and dynamic version \cite{noauthor_graphx_nodate}. Static PageRank runs for a fixed number of iterations, while dynamic PageRank runs until the ranks converge \cite{noauthor_graphx_nodate}. In both implementations, power iteration is used to update values \cite{xin_graphx_2013}, which requires many passes over the graph, resulting in costly matrix operations.  A fundamental challenge lies in the graph representation itself \cite{noauthor_fast_nodate}. Typically, graphs are represented in matrices, which require up to $O(n^2)$ of memory in the worst case \cite{wu_efficient_2024}. The transition matrix becomes a significant memory bottleneck with the increasing size of graphs, which makes it more impractical to directly store or process the whole graph. Therefore efficient models that avoid full matrix construction and instead rely on approximations are necessary \cite{noauthor_fast_nodate}.
+PageRank is a broadly used graph algorithm introduced by Google \cite{page_pagerank_1999}. Many domains such as search engines, recommendation systems and social networks use PageRank. The algorithm measures the importance of websites \cite{wu_efficient_2024}. However, research shows that most implementations of the algorithm are inefficient when applied to large scale graphs due to a huge computational overhead \cite{wu_efficient_2024}\cite{jayaram_dynamic_2024}\cite{yang_efficient_2024}. GraphX's PageRank comes with a static and dynamic version \cite{noauthor_graphx_nodate}. Static PageRank runs for a fixed number of iterations, while dynamic PageRank runs until the ranks converge \cite{noauthor_graphx_nodate}. In both implementations, power iteration is used to update values \cite{xin_graphx_2013}, which requires many passes over the graph, resulting in costly matrix operations.  A fundamental challenge lies in the graph representation itself \cite{noauthor_fast_nodate}. Typically, graphs are represented in matrices, which require up to $O(n^2)$ of memory in the worst case \cite{wu_efficient_2024}. The transition matrix becomes a significant memory bottleneck with the increasing size of graphs, which makes it more impractical to directly store or process the whole graph. Therefore efficient models that avoid full matrix construction and instead rely on approximations are necessary \cite{noauthor_fast_nodate}.
 
 
 
@@ -53,6 +61,6 @@ After the implementation of a state of the art approach, the setup will be evalu
 \bibliographystyle{plain}  % Choose a citation format
 \bibliography{references}   % Link to your BibTeX file
 
-\end{multicols}
+%\end{multicols}
 
 \end{document}
