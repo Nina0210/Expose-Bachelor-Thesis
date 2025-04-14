@@ -1,4 +1,69 @@
 
+@techreport{breyer_markovian_2002,
+	type = {Technical {Repot}},
+	title = {{MARKOVIAN} {PAGE} {RANKING} {DISTRIBUTIONS}: {SOME} {THEORY} {AND} {SIMULATIONS}},
+	url = {http://www.lbreyer.com/preprints.html.},
+	abstract = {We discuss some simple theoretical properties of web page ranking distributions, including PageRank (Brin and Page, 1998), which are based on uniformly ergodic Markov chains. We also propose a modiﬁcation of PageRank whith reduces the bias for older documents, and discuss details of our simulation programs.},
+	language = {en},
+	author = {Breyer, L A},
+	year = {2002},
+}
+
+@inproceedings{gonzalez_graphx_2014,
+	title = {{GraphX}: {Graph} {Processing} in a {Distributed} {Dataflow} {Framework}},
+	abstract = {In pursuit of graph processing performance, the systems community has largely abandoned general-purpose distributed dataﬂow frameworks in favor of specialized graph processing systems that provide tailored programming abstractions and accelerate the execution of iterative graph algorithms. In this paper we argue that many of the advantages of specialized graph processing systems can be recovered in a modern general-purpose distributed dataﬂow system. We introduce GraphX, an embedded graph processing framework built on top of Apache Spark, a widely used distributed dataﬂow system. GraphX presents a familiar composable graph abstraction that is sufﬁcient to express existing graph APIs, yet can be implemented using only a few basic dataﬂow operators (e.g., join, map, group-by). To achieve performance parity with specialized graph systems, GraphX recasts graph-speciﬁc optimizations as distributed join optimizations and materialized view maintenance. By leveraging advances in distributed dataﬂow frameworks, GraphX brings low-cost fault tolerance to graph processing. We evaluate GraphX on real workloads and demonstrate that GraphX achieves an order of magnitude performance gain over the base dataﬂow framework and matches the performance of specialized graph processing systems while enabling a wider range of computation.},
+	language = {en},
+	publisher = {USENIX Association},
+	author = {Gonzalez, Joseph E and Xin, Reynold S and Dave, Ankur and Crankshaw, Daniel and Franklin, Michael J and Stoica, Ion},
+	year = {2014},
+	pages = {599--613},
+}
+
+@inproceedings{gonzalez_graphx_2014-1,
+	address = {USA},
+	series = {{OSDI}'14},
+	title = {{GraphX}: graph processing in a distributed dataflow framework},
+	isbn = {978-1-931971-16-4},
+	shorttitle = {{GraphX}},
+	abstract = {In pursuit of graph processing performance, the systems community has largely abandoned general-purpose distributed dataflow frameworks in favor of specialized graph processing systems that provide tailored programming abstractions and accelerate the execution of iterative graph algorithms. In this paper we argue that many of the advantages of specialized graph processing systems can be recovered in a modern general-purpose distributed dataflow system. We introduce GraphX, an embedded graph processing framework built on top of Apache Spark, a widely used distributed dataflow system. GraphX presents a familiar composable graph abstraction that is sufficient to express existing graph APIs, yet can be implemented using only a few basic dataflow operators (e.g., join, map, group-by). To achieve performance parity with specialized graph systems, GraphX recasts graph-specific optimizations as distributed join optimizations and materialized view maintenance. By leveraging advances in distributed dataflow frameworks, GraphX brings low-cost fault tolerance to graph processing. We evaluate GraphX on real workloads and demonstrate that GraphX achieves an order of magnitude performance gain over the base dataflow framework and matches the performance of specialized graph processing systems while enabling a wider range of computation.},
+	urldate = {2025-04-11},
+	booktitle = {Proceedings of the 11th {USENIX} conference on {Operating} {Systems} {Design} and {Implementation}},
+	publisher = {USENIX Association},
+	author = {Gonzalez, Joseph E. and Xin, Reynold S. and Dave, Ankur and Crankshaw, Daniel and Franklin, Michael J. and Stoica, Ion},
+	year = {2014},
+	pages = {599--613},
+}
+
+@inproceedings{bar-yossef_local_2008,
+	address = {Napa Valley California USA},
+	title = {Local approximation of pagerank and reverse pagerank},
+	isbn = {978-1-59593-991-3},
+	url = {https://dl.acm.org/doi/10.1145/1458082.1458122},
+	doi = {10.1145/1458082.1458122},
+	language = {en},
+	urldate = {2025-04-11},
+	booktitle = {Proceedings of the 17th {ACM} conference on {Information} and knowledge management},
+	publisher = {ACM},
+	author = {Bar-Yossef, Ziv and Mashiach, Li-Tal},
+	month = oct,
+	year = {2008},
+	pages = {279--288},
+}
+
+@article{jin_software_2022,
+	title = {Software {Systems} {Implementation} and {Domain}-{Specific} {Architectures} towards {Graph} {Analytics}},
+	volume = {2022},
+	url = {https://spj.science.org/doi/10.34133/2022/9806758},
+	doi = {10.34133/2022/9806758},
+	abstract = {Graph analytics, which mainly includes graph processing, graph mining, and graph learning, has become increasingly important in several domains, including social network analysis, bioinformatics, and machine learning. However, graph analytics applications suffer from poor locality, limited bandwidth, and low parallelism owing to the irregular sparse structure, explosive growth, and dependencies of graph data. To address those challenges, several programming models, execution modes, and messaging strategies are proposed to improve the utilization of traditional hardware and performance. In recent years, novel computing and memory devices have emerged, e.g., HMCs, HBM, and ReRAM, providing massive bandwidth and parallelism resources, making it possible to address bottlenecks in graph applications. To facilitate understanding of the graph analytics domain, our study summarizes and categorizes current software systems implementation and domain-specific architectures. Finally, we discuss the future challenges of graph analytics.},
+	urldate = {2025-04-11},
+	journal = {Intelligent Computing},
+	author = {Jin, Hai and Qi, Hao and Zhao, Jin and Jiang, Xinyu and Huang, Yu and Gui, Chuangyi and Wang, Qinggang and Shen, Xinyang and Zhang, Yi and Hu, Ao and Chen, Dan and Liu, Chaoqiang and Liu, Haifeng and He, Haiheng and Ye, Xiangyu and Wang, Runze and Yuan, Jingrui and Yao, Pengcheng and Zhang, Yu and Zheng, Long and Liao, Xiaofei},
+	month = oct,
+	year = {2022},
+	note = {Publisher: American Association for the Advancement of Science},
+}
+
 @inproceedings{khan_energy_2016,
 	address = {Heidelberg Germany},
 	title = {Energy efficiency of large scale graph processing platforms},
@@ -77,24 +142,6 @@
 	urldate = {2025-04-11},
 }
 
-@article{liu_fast_2015,
-	title = {Fast {PageRank} approximation by adaptive sampling},
-	volume = {42},
-	issn = {0219-3116},
-	url = {https://doi.org/10.1007/s10115-013-0691-1},
-	doi = {10.1007/s10115-013-0691-1},
-	abstract = {PageRank is typically computed from the power of transition matrix in a Markov Chain model. It is therefore computationally expensive, and efficient approximation methods to accelerate the computation are necessary, especially when it comes to large graphs. In this paper, we propose two sampling algorithms for PageRank efficient approximation: Direct sampling and Adaptive sampling. Both methods sample the transition matrix and use the sample in PageRank computation. Direct sampling method samples the transition matrix once and uses the sample directly in PageRank computation, whereas adaptive sampling method samples the transition matrix multiple times with an adaptive sample rate which is adjusted iteratively as the computing procedure proceeds. This adaptive sample rate is designed for a good trade-off between accuracy and efficiency for PageRank approximation. We provide detailed theoretical analysis on the error bounds of both methods. We also compare them with several state-of-the-art PageRank approximation methods, including power extrapolation and inner–outer power iteration algorithm. Experimental results on several real-world datasets show that our methods can achieve significantly higher efficiency while attaining comparable accuracy than state-of-the-art methods.},
-	language = {en},
-	number = {1},
-	urldate = {2025-04-07},
-	journal = {Knowledge and Information Systems},
-	author = {Liu, Wenting and Li, Guangxia and Cheng, James},
-	month = jan,
-	year = {2015},
-	keywords = {Adaptive Sampling, PageRank, Power iteration},
-	pages = {127--146},
-}
-
 @article{chen_powerlyra_2018,
 	title = {{PowerLyra}: {Differentiated} {Graph} {Computation} and {Partitioning} on {Skewed} {Graphs}},
 	volume = {5},
@@ -129,7 +176,7 @@
 	pages = {54--65},
 }
 
-@article{liu_fast_2015-1,
+@article{liu_fast_2015,
 	title = {Fast {PageRank} approximation by adaptive sampling},
 	volume = {42},
 	issn = {0219-3116},
@@ -236,13 +283,6 @@
 	note = {ISSN: 2375-026X},
 	keywords = {Application software, Computer applications, Crawlers, Data engineering, Educational institutions, Explosions, Runtime, Search engines, Stochastic processes, Web pages},
 	pages = {54--65},
-}
-
-@article{breyer_markovian_nodate,
-	title = {{MARKOVIAN} {PAGE} {RANKING} {DISTRIBUTIONS}: {SOME} {THEORY} {AND} {SIMULATIONS}},
-	abstract = {We discuss some simple theoretical properties of web page ranking distributions, including PageRank (Brin and Page, 1998), which are based on uniformly ergodic Markov chains. We also propose a modiﬁcation of PageRank whith reduces the bias for older documents, and discuss details of our simulation programs.},
-	language = {en},
-	author = {Breyer, L A},
 }
 
 @article{avrachenkov_monte_2007,
